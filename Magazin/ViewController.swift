@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var itemsLabel: UILabel!
     let green: Shop = Shop()
+    var i: Int = 0
     var secondVC: SecondViewController?
     var strPackage: String = ""
     @IBOutlet weak var package: UILabel!
