@@ -79,6 +79,29 @@
                                     <action selector="move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qv4-Qo-7PE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-yz-gRn">
+                                <rect key="frame" x="35" y="124" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-cW-bgC">
+                                <rect key="frame" x="115" y="124" width="279" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="P70-OL-qUu"/>
+                                    <constraint firstAttribute="height" constant="21" id="YQI-wi-z8V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgr-op-umh">
+                                <rect key="frame" x="154" y="293" width="61" height="30"/>
+                                <state key="normal" title="Корзина"/>
+                                <connections>
+                                    <action selector="packageItems:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oiC-Rq-4WF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,13 +109,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vAB-cn-fon" secondAttribute="trailing" constant="20" id="1wE-kb-NjP"/>
                             <constraint firstItem="2MH-CN-dha" firstAttribute="top" secondItem="Ff8-8P-Hfv" secondAttribute="bottom" constant="80" id="3k5-U3-lHD"/>
                             <constraint firstItem="Z1I-uv-0v8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="60K-6H-rXe"/>
+                            <constraint firstItem="Lgr-op-umh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="154" id="6Dz-5W-xbg"/>
                             <constraint firstItem="Ff8-8P-Hfv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7fd-hv-Kjd"/>
                             <constraint firstItem="HCe-r4-0Za" firstAttribute="top" secondItem="2MH-CN-dha" secondAttribute="bottom" constant="8" symbolic="YES" id="B7x-Ol-ndv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lgr-op-umh" secondAttribute="bottom" constant="399" id="BRO-HS-Wjl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vAB-cn-fon" secondAttribute="bottom" id="EHk-IE-c5u"/>
+                            <constraint firstItem="4V7-yz-gRn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="NFy-aa-R7h"/>
                             <constraint firstItem="2MH-CN-dha" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WXI-8V-Rjk"/>
                             <constraint firstItem="Ff8-8P-Hfv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="aoa-fE-KnD"/>
+                            <constraint firstItem="X9Q-cW-bgC" firstAttribute="top" secondItem="4V7-yz-gRn" secondAttribute="top" id="eMi-I4-1mh"/>
+                            <constraint firstItem="X9Q-cW-bgC" firstAttribute="leading" secondItem="4V7-yz-gRn" secondAttribute="trailing" constant="8" symbolic="YES" id="eml-MV-KBK"/>
+                            <constraint firstItem="Lgr-op-umh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="293" id="gBv-qa-e5w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lgr-op-umh" secondAttribute="trailing" constant="199" id="k8W-wM-c2O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z1I-uv-0v8" secondAttribute="trailing" constant="20" id="nhL-d7-DMC"/>
                             <constraint firstItem="HCe-r4-0Za" firstAttribute="centerX" secondItem="2MH-CN-dha" secondAttribute="centerX" id="qKu-b2-kH6"/>
+                            <constraint firstItem="4V7-yz-gRn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="wLk-mM-GXG"/>
                             <constraint firstItem="Z1I-uv-0v8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wVe-5k-eng"/>
                             <constraint firstItem="Z1I-uv-0v8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="xMI-co-qYR"/>
                         </constraints>
@@ -101,12 +132,13 @@
                     <connections>
                         <outlet property="itemsLabel" destination="Z1I-uv-0v8" id="c0y-CG-iJF"/>
                         <outlet property="logo" destination="vAB-cn-fon" id="UfK-yP-qyg"/>
+                        <outlet property="package" destination="X9Q-cW-bgC" id="Mof-uc-WZG"/>
                         <outlet property="sellButton" destination="Ff8-8P-Hfv" id="2SY-aX-R4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="124"/>
+            <point key="canvasLocation" x="334.78260869565219" y="123.88392857142857"/>
         </scene>
         <!--Storage-->
         <scene sceneID="uKp-Gd-j61">

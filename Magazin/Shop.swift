@@ -12,7 +12,7 @@ class Shop {
     var storage: [String] = []
     var closed: Bool = true
     var onShopClosed: () -> () = {}
-
+    var ArrayItems: [String] = []
     init() {
         updateWorkingStatus()
         if let savedStorage = UserDefaults.standard.array(forKey: "ShopStorage") as? [String] {
@@ -24,6 +24,7 @@ class Shop {
     }
 
     func sell() {
+        if ArrayItems.isEmpty {
         guard items.count > 0 else {
             onShopClosed()
             return
@@ -32,6 +33,9 @@ class Shop {
         UserDefaults.standard.set(items, forKey: "ShopShelf")
         if items.isEmpty {
             addItemsFromStorage()
+        }
+        }else{
+            ArrayItems.removeAll()
         }
     }
 
@@ -64,5 +68,9 @@ class Shop {
     func doubleSell(){
         sell()
         sell()
+    }
+    func addPackageItems(){
+        ArrayItems.append(items[0])
+        items.remove(at: 0)
     }
 }

@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var itemsLabel: UILabel!
     let green: Shop = Shop()
     var secondVC: SecondViewController?
-
+    var strPackage: String = ""
+    @IBOutlet weak var package: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +43,9 @@ class ViewController: UIViewController {
     @IBAction func sellButtonPressed(_ sender: Any) {
         green.sell()
         updateLabel()
+        if green.ArrayItems.isEmpty{
+            package.text = ""
+        }
     }
     
     func updateLabel() {
@@ -58,6 +62,15 @@ class ViewController: UIViewController {
             return
         }
         navigationController?.show(vc, sender: nil)
+    }
+    @IBAction func packageItems(_ sender: Any) {
+        green.addPackageItems()
+        for index in 0..<green.ArrayItems.count {
+            strPackage = strPackage + "\(green.ArrayItems[index])"
+        }
+        
+        package.text = strPackage
+       
     }
 }
 
