@@ -8,12 +8,56 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var sellButton: UIButton!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var itemsLabel: UILabel!
+    let green: Shop = Shop()
+    var secondVC: SecondViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Second") as? SecondViewController
+        
+        secondVC?.shop = green
+
+        green.onShopClosed = {
+            let alert = UIAlertController(title: "Магазин закрыт", message: nil, preferredStyle: .alert)
+            let OK = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+            let addItemsAction = UIAlertAction(title: "Добавить", style: .default) { action in
+                self.performSegue(withIdentifier: "add", sender: nil)
+            }
+            alert.addAction(OK)
+            alert.addAction(addItemsAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        logo.image = UIImage(named: "green_logo")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateLabel()
+    }
 
+    @IBAction func sellButtonPressed(_ sender: Any) {
+        green.sell()
+        updateLabel()
+    }
+    
+    func updateLabel() {
+        itemsLabel.text = "\(green.items)"
+    }
+    
+    @IBAction func move(_ sender: Any) {
+        green.moveItemsToShelf()
+        updateLabel()
+    }
+
+    @IBAction func openStorageVC(_ sender: Any) {
+        guard let vc = secondVC else {
+            return
+        }
+        navigationController?.show(vc, sender: nil)
+    }
 }
 
