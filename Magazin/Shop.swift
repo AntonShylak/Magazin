@@ -61,4 +61,8 @@ class Shop {
             closed = false
         }
     }
+    func doubleSell(){
+        sell()
+        sell()
+    }
 }
